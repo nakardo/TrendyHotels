@@ -9,7 +9,11 @@ I've coded this in a few days just to play a while with Booking.com API, this co
 
 ##Setup
 
-The App comes already configured to connect with a server instance already deployed on Heroku. Either way, it can be configured on a local instance. You can change this on `Settings.java` file.
+Project comes already configured to connect with a server instance already deployed on Heroku. Either way, it can be configured to point to a local instance. You can change this on `Settings.java` file.
+
+##TODO's
+
+The App currently reports a hardcoded location (New York, New York) for getting local Hotels. It shouldn't be much complicated to integrate with `LocationManager` to retrieve current location and send it to the Server, which supports an input of latitude and longitude to pull the data.
 
 ##Server
 
