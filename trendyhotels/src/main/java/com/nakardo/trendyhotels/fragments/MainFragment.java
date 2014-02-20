@@ -1,10 +1,13 @@
 package com.nakardo.trendyhotels.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.nakardo.trendyhotels.MainActivity;
@@ -18,7 +21,7 @@ import java.util.ArrayList;
 /**
  * Created by nakes on 2/18/14.
  */
-public class MainFragment extends Fragment implements MainActivity.HotelsCountCallback {
+public class MainFragment extends Fragment implements MainActivity.HotelsCountCallback, AdapterView.OnItemClickListener {
     private static final String HOTELS_LIST_BUNDLE_KEY = "HOTELS_LIST";
 
     private ArrayList<Hotel> mHotels;
@@ -43,6 +46,8 @@ public class MainFragment extends Fragment implements MainActivity.HotelsCountCa
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         mListView = (ListView) rootView.findViewById(android.R.id.list);
+        mListView.setOnItemClickListener(this);
+
         if (mHotels != null) {
             mListAdapter = new HotelsAdapter(getActivity(), mHotels);
             mListView.setAdapter(mListAdapter);
@@ -62,5 +67,12 @@ public class MainFragment extends Fragment implements MainActivity.HotelsCountCa
             mListAdapter.setHotels(mHotels);
             mListAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Hotel hotel = mHotels.get(position);
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(hotel.getUrl()));
+        startActivity(browserIntent);
     }
 }

@@ -10,6 +10,7 @@ public class Hotel implements Serializable {
     private String mDistrict;
     private String mAddress;
     private String mMainPhotoUrl;
+    private String mUrl;
     private int mCount;
 
     public String getHotelName() {
@@ -50,5 +51,13 @@ public class Hotel implements Serializable {
 
     public void setMainPhotoUrl(String mMainPhotoUrl) {
         this.mMainPhotoUrl = mMainPhotoUrl;
+    }
+
+    public String getUrl() {
+        return mUrl;
+    }
+
+    public void setUrl(String url) {
+        this.mUrl = url;
     }
 }
