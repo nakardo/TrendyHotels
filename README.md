@@ -17,7 +17,7 @@ The App currently reports a hardcoded location (New York, New York) for getting 
 
 ##Server
 
-The server source is availabe to download [here][1].
+The server source is available to download [here][1].
 
 License
 =======
